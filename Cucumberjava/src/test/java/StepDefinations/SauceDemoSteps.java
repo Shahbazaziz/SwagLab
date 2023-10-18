@@ -7,6 +7,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
@@ -16,12 +17,13 @@ import io.cucumber.java.en.When;
 public class SauceDemoSteps {
 	
 	WebDriver driver=null;
+	WebDriverWait wait = null;
 
 	@Given("user open a browser")
 	public void user_open_a_browser() {
-	   System.setProperty("webdriver.chrome.driver", "C:/Users/dell/eclipse-workspace/Cucumberjava/src/test/resources/drivers/chromedriver.exe");
+	   System.setProperty("webdriver.chrome.driver", "C:/Users/DAX/git/SwagLab/Cucumberjava/src/test/resources/drivers/chromedriver.exe");
 	   driver=new ChromeDriver();
-	
+	   wait = new WebDriverWait(driver, 10);
 	}
 
 	@Given("user is on saucedemo page")
@@ -57,7 +59,7 @@ public class SauceDemoSteps {
 		selectobject.selectByVisibleText("Price (high to low)");
 		Thread.sleep(3000);
 		
-		driver.close();
+		
 		driver.quit();
 	   
 	}

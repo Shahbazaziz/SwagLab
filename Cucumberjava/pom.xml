@@ -30,6 +30,12 @@
     <artifactId>selenium-java</artifactId>
     <version>4.14.1</version>
 </dependency>
+<!-- Selenium WebDriver Support -->
+    <dependency>
+        <groupId>org.seleniumhq.selenium</groupId>
+        <artifactId>selenium-support</artifactId>
+        <version>3.141.59</version> <!-- Replace with the desired version -->
+    </dependency>
 
   </dependencies>
 </project>
