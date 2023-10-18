@@ -10,5 +10,6 @@ Feature: Feature to test Sauce Demo Website
     And Hit Login Button
   	Then User navigate to Homepage
   	Then Select Filters Options
+  	And Adding product to the cart 
   
  

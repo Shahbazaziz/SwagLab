@@ -3,6 +3,7 @@ package StepDefinations;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -58,9 +59,21 @@ public class SauceDemoSteps {
 		Select selectobject=new Select(dropdown);
 		selectobject.selectByVisibleText("Price (high to low)");
 		Thread.sleep(3000);
-		
-		
-		driver.quit();
 	   
+	}
+	@Then("Adding product to the cart")
+	public void adding_product_to_the_cart() throws InterruptedException {
+	    
+	    WebElement AddingProduct=driver.findElement(By.id("add-to-cart-sauce-labs-bolt-t-shirt"));
+	    AddingProduct.click();
+	    Thread.sleep(3000);
+	    JavascriptExecutor up = (JavascriptExecutor) driver;
+        up.executeScript("window.scrollBy(0, -500);");
+        Thread.sleep(3000);
+        JavascriptExecutor down = (JavascriptExecutor) driver;
+        down.executeScript("window.scrollBy(0, 500);");
+        WebElement RemoveProduct=driver.findElement(By.id("remove-sauce-labs-bolt-t-shirt"));
+        RemoveProduct.click();
+        driver.quit();
 	}
 }
